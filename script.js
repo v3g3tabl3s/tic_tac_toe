@@ -11,19 +11,15 @@ let oxArray = new Array(9);
 const addClick = () => {
     for (let i = 0; i < gridItem.length; i++) {
 
-        gridItem[i].onclick = () => {  
+        gridItem[i].onclick = () => {
             xOrO(i);
             //console.log(oxArray);
             checkWin(oxArray);
+        }
     }
 }
-}
-
 
 addClick();
-
-
-
 
 const xOrO = (i) => {
     if (gridItem[i].textContent == '') {
@@ -57,95 +53,81 @@ const xOrO = (i) => {
 
     }
 
-
 const removeClick = () => {
 
     console.log("click removed");
 
-    for(let i = 0;i < gridItem.length;i++){
+    for (let i = 0; i < gridItem.length; i++) {
         gridItem[i].onclick = null;
+    }
 }
 
-   // console.log(gridItem);
 
-
-
-}
-
-//console.table(listAllEventListeners());
 const checkWin = (oxArray) => {
 
-  //  if (oxArray.includes(undefined)) {
-
-        if (oxArray[0] == oxArray[1] && oxArray[1] == oxArray[2]) {
-            if (oxArray[1] != null) {
-                console.log("winner012" + oxArray[1]);
-                whoWon(oxArray[1]);
-                removeClick();
-            }
-
-        }
-        if (oxArray[3] == oxArray[4] && oxArray[4] == oxArray[5]) {
-            if (oxArray[4] != null) {
-                console.log("winner345");
-                whoWon(oxArray[4]);
-                removeClick();
-            }
-        }
-        if (oxArray[6] == oxArray[7] && oxArray[7] == oxArray[8]) {
-            if (oxArray[7] != null) {
-                console.log("winner678");
-                whoWon(oxArray[7]);
-                removeClick();
-            }
-        }
-        if (oxArray[0] == oxArray[4] && oxArray[4] == oxArray[8]) {
-            if (oxArray[4] != null) {
-                console.log("winner048");
-                whoWon(oxArray[4]);
-                removeClick();
-            }
-        }
-        if (oxArray[0] == oxArray[3] && oxArray[3] == oxArray[6]) {
-            if (oxArray[3] != null) {
-                console.log("winner036");
-                whoWon(oxArray[3]);
-                removeClick();
-            }
-        }
-        if (oxArray[1] == oxArray[4] && oxArray[4] == oxArray[7]) {
-            if (oxArray[4] != null) {
-                console.log("winner147");
-                whoWon(oxArray[4]);
-                removeClick();
-            }
-        }
-        if (oxArray[2] == oxArray[5] && oxArray[5] == oxArray[8]) {
-            if (oxArray[5] != null) {
-                console.log("winner258");
-                whoWon(oxArray[5]);
-                removeClick();
-            }
-        }
-        if (oxArray[2] == oxArray[4] && oxArray[4] == oxArray[6]) {
-            if (oxArray[4] != null) {
-                console.log("winner246");
-                whoWon(oxArray[4]);
-                removeClick();
-            }
-        }
-        
-        else if(oxArray.includes(undefined) == false){
-            console.log("DRAW");
-            alert("DRAW");
+    if (oxArray[0] == oxArray[1] && oxArray[1] == oxArray[2]) {
+        if (oxArray[1] != null) {
+            console.log("winner012" + oxArray[1]);
+            whoWon(oxArray[1]);
             removeClick();
-            whichPlayer.textContent = "DRAW";
-
         }
 
+    }
+    if (oxArray[3] == oxArray[4] && oxArray[4] == oxArray[5]) {
+        if (oxArray[4] != null) {
+            console.log("winner345");
+            whoWon(oxArray[4]);
+            removeClick();
+        }
+    }
+    if (oxArray[6] == oxArray[7] && oxArray[7] == oxArray[8]) {
+        if (oxArray[7] != null) {
+            console.log("winner678");
+            whoWon(oxArray[7]);
+            removeClick();
+        }
+    }
+    if (oxArray[0] == oxArray[4] && oxArray[4] == oxArray[8]) {
+        if (oxArray[4] != null) {
+            console.log("winner048");
+            whoWon(oxArray[4]);
+            removeClick();
+        }
+    }
+    if (oxArray[0] == oxArray[3] && oxArray[3] == oxArray[6]) {
+        if (oxArray[3] != null) {
+            console.log("winner036");
+            whoWon(oxArray[3]);
+            removeClick();
+        }
+    }
+    if (oxArray[1] == oxArray[4] && oxArray[4] == oxArray[7]) {
+        if (oxArray[4] != null) {
+            console.log("winner147");
+            whoWon(oxArray[4]);
+            removeClick();
+        }
+    }
+    if (oxArray[2] == oxArray[5] && oxArray[5] == oxArray[8]) {
+        if (oxArray[5] != null) {
+            console.log("winner258");
+            whoWon(oxArray[5]);
+            removeClick();
+        }
+    }
+    if (oxArray[2] == oxArray[4] && oxArray[4] == oxArray[6]) {
+        if (oxArray[4] != null) {
+            console.log("winner246");
+            whoWon(oxArray[4]);
+            removeClick();
+        }
+    } else if (oxArray.includes(undefined) == false) {
+        console.log("DRAW");
+        alert("DRAW");
+        removeClick();
+        whichPlayer.textContent = "DRAW";
 
-
-
+    }
 }
 
 const whoWon = (val) => {
@@ -158,7 +140,6 @@ const whoWon = (val) => {
         whichPlayer.textContent = "Player 2 wins!"
         alert("Player 2 wins!");
     }
-
 }
 
 
@@ -168,18 +149,15 @@ const reset = () => {
     }
 
     whichPlayer.textContent = "Player 1, make your move🤨";
-
     addClick();
 }
-
 
 restartBtn.onclick = () => {
     reset();
     oxArray = new Array(9);
 }
 
-
-
+/*
 const Player = (name) => {
     const sayName = () => console.log(`my name is ${name}`)
     return {sayName}
@@ -205,3 +183,4 @@ const oPlayer = (name) =>{
  
  player2.sayName();
  player2.ohNo();
+*/
